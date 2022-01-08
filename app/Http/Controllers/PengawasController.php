@@ -227,6 +227,11 @@ public function pengawas_checklist_apd()
    $list_apd = Apd::all();
    $list_pekerjaan = Pekerjaan::OrderBy('id','DESC')->get();
    $data_apd = ChecklistApd::OrderBy('id','DESC')->get();
+   $data_apd = DB::table('checklist_apd')
+        ->join('apd', 'checklist_apd.id_apd', '=', 'apd.id')
+        ->select('checklist_apd.*','apd.nama_apd')
+        ->orderBy('checklist_apd.id','DESC')
+        ->get();
 
     return view('pengawas.checklist_apd',compact('data_apd','list_apd','list_pekerjaan'));
 }
@@ -370,7 +375,7 @@ public function pengawas_laporan_pekerjaan()
         ->orderBy('pengawasan_k3.id','DESC')
         ->get();
 
-    $lap_pekerjaan = [];
+
 
     foreach ($data_pengawasan as  $key => $value) {
        
@@ -413,28 +418,80 @@ public function pengawas_laporan_pengawasan_k3()
 
     $data_pengawasan = DB::table('pengawasan_k3')
         ->join('pekerjaan', 'pengawasan_k3.id_pekerjaan', '=', 'pekerjaan.id')
-        ->select('pengawasan_k3.*','pekerjaan.*')
+        ->select('pengawasan_k3.*','pekerjaan.pekerjaan','pekerjaan.plk_pekerjaan','pekerjaan.no_pk','pekerjaan.hari_tgl','pekerjaan.wkt_pekerjaan_awal','pekerjaan.wkt_pekerjaan_akhir','pekerjaan.id_jadwal_pengawasan')
         ->orderBy('pengawasan_k3.id','DESC')
         ->get();
-
+//return $data_pengawasan;
 
     return view('pengawas.laporan_pengawasan_k3',compact('data_pengawasan'));
 }
 
 
 
-public function pengawas_laporan_pekerjaan_cetak(){
+public function pengawas_laporan_pengawasan_k3_cetak(){
         
-        $data = PengawasanK3::OrderBy('id','DESC')->get();
+   $data_pengawasan = DB::table('pengawasan_k3')
+   ->join('pekerjaan', 'pengawasan_k3.id_pekerjaan', '=', 'pekerjaan.id')
+   ->select('pengawasan_k3.*','pekerjaan.*')
+   ->orderBy('pengawasan_k3.id','DESC')
+   ->get();
        
-        // dd($data);
-        view()->share('data', $data);
+        // dd($data_pengawasan);
+        view()->share('data_pengawasan', $data_pengawasan);
         
-        $pdf = PDF::loadview('pengawas.cetak_laporan_pengawasan_k3', $data)->setPaper('A4','landscape');
+        $pdf = PDF::loadview('pengawas.cetak_laporan_pengawasan_k3', $data_pengawasan)->setPaper('A4','landscape');
         
         return $pdf->stream('laporan_pengawasan_k3.pdf');
         //return view('admin.fishmarket.lihat_pdf');
     }
+
+
+    public function pengawas_laporan_pekerjaan_cetak(){
+
+        $data_pengawasan = DB::table('pengawasan_k3')
+        ->join('pekerjaan', 'pengawasan_k3.id_pekerjaan', '=', 'pekerjaan.id')
+        ->join('jadwal_pengawasan', 'pekerjaan.id_jadwal_pengawasan', '=', 'jadwal_pengawasan.id')
+        ->select('pengawasan_k3.*','pekerjaan.*','jadwal_pengawasan.*')
+        ->orderBy('pengawasan_k3.id','DESC')
+        ->get();
+
+
+        foreach ($data_pengawasan as  $key => $value) {
+
+         $c_apd = ChecklistApd::where('id_pekerjaan', $value->id_pekerjaan)->orderBy('id','DESC')->first();
+         $c_peralatan = ChecklistPeralatan::where('id_pekerjaan', $value->id_pekerjaan)->orderBy('id','DESC')->first();
+
+         if ($c_apd != null) {
+
+             $value->nama_personel = $c_apd->nama_personel;
+             $value->id_apd = $c_apd->id_apd;
+             $value->hasil_sebelum = $c_apd->hasil_sebelum;
+             $value->hasil_saat = $c_apd->hasil_saat;
+             $value->hasil_setelah = $c_apd->hasil_setelah;
+         }
+
+         if ($c_peralatan != null) {
+
+             $value->jumlah = $c_peralatan->jumlah;
+             $value->sat = $c_peralatan->sat;
+             $value->hasil_sebelum = $c_peralatan->hasil_sebelum;
+             $value->hasil_setelah = $c_peralatan->hasil_setelah;
+             $value->keterangan = $c_peralatan->keterangan;
+             $value->id_peralatan = $c_peralatan->id_peralatan;
+             $value->dok_pemasangan = $c_peralatan->dok_pemasangan;
+         }
+
+     }
+
+
+        // dd($data_pengawasan);
+     view()->share('data_pengawasan', $data_pengawasan);
+
+     $pdf = PDF::loadview('pengawas.cetak_laporan_pekerjaan', $data_pengawasan)->setPaper('A4','landscape');
+
+     return $pdf->stream('laporan_pekerjaan.pdf');
+        //return view('admin.fishmarket.lihat_pdf');
+ }
 
 
 

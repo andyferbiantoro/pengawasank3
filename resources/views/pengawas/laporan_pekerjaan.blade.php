@@ -12,7 +12,7 @@ Laporan Pekerjaan
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Laporan Pekerjaan</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download fa-sm text-white-50"></i> Download PDF</a>
+        <a href="{{route('pengawas_laporan_pekerjaan_cetak')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download fa-sm text-white-50"></i> Download PDF</a>
     </div>
 
 
@@ -42,11 +42,9 @@ Laporan Pekerjaan
                                     <th style="text-align: center; vertical-align: middle;">Nomor Surat Tugas</th>
                                     <th style="text-align: center; vertical-align: middle;">Nomor PK</th>
                                     <th style="text-align: center; vertical-align: middle;">Pekerjaan</th>
-                                    <th style="text-align: center; vertical-align: middle;">Volume</th>
                                     <th style="text-align: center; vertical-align: middle;">Lokasi</th>
                                     <th style="text-align: center; vertical-align: middle;">Titik Tumpu</th>
                                     <th style="text-align: center; vertical-align: middle;">Penyulang</th>
-                                    <th style="text-align: center; vertical-align: middle;">Unit</th>
                                     <th style="text-align: center; vertical-align: middle;">Koordinat</th>
                                     <th style="text-align: center; vertical-align: middle;">Pelaksana</th>
                                     <th style="text-align: center; vertical-align: middle;">Pengawas</th>
@@ -72,11 +70,9 @@ Laporan Pekerjaan
                                     <td style="text-align: center;">{{$data->no_surat_tugas }}</td>
                                     <td style="text-align: center;">{{$data->no_pk }}</td>
                                     <td style="text-align: center;">{{$data->pekerjaan }}</td>
-                                    <td style="text-align: center;">-- VOLUME --</td>
                                     <td style="text-align: center;">{{$data->lokasi }}</td>
                                     <td style="text-align: center;">{{$data->titik_tumpu }}</td>
                                     <td style="text-align: center;">{{$data->penyulang }}</td>
-                                    <td style="text-align: center;">-- UNIT --</td>
                                     <td style="text-align: center;">{{$data->koordinat }}</td>
                                     <td style="text-align: center;">{{$data->pelaksana }}</td>
                                     <td style="text-align: center;">{{$data->pengawas }}</td>
@@ -112,7 +108,7 @@ Laporan Pekerjaan
                                     @if($data->id_peralatan == 3)
                                     <td style="text-align: center;">{{$data->dok_pelaksanaan }}</td>
                                     @else
-                                    <td style="text-align: center;">kosong</td>
+                                    <td style="text-align: center;">kosong</td> 
                                     @endif  
 
                                     <td style="text-align: center;">{{$data->keterangan }}</td>

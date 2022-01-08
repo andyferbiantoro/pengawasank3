@@ -22,7 +22,7 @@ class AuthController extends Controller
         //auth()->attempt buat proses login  request input username dan password,  request input  sama kayak $request->password dan usernamenya, ditambah $ingat jika pengen ingat
         if(auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $ingat)){
             //auth->user() untuk memanggil data user yang sudah login
-           if(auth()->user()->role == "pengawas"){
+        if(auth()->user()->role == "pengawas"){
             return redirect()->route('pengawas')->with('success', 'Anda Berhasil Login');
         }else if(auth()->user()->role == "petugas"){
             return redirect()->route('petugas')->with('success', 'Anda Berhasil Login');

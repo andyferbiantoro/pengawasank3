@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth', 'pengawas']],function(){
 
 
     Route::get('/pengawas_laporan_pekerjaan', 'PengawasController@pengawas_laporan_pekerjaan')->name('pengawas_laporan_pekerjaan');
+    Route::get('/pengawas_laporan_pengawasan_k3_cetak', 'PengawasController@pengawas_laporan_pengawasan_k3_cetak')->name('pengawas_laporan_pengawasan_k3_cetak');
     Route::get('/pengawas_laporan_pekerjaan_cetak', 'PengawasController@pengawas_laporan_pekerjaan_cetak')->name('pengawas_laporan_pekerjaan_cetak');
 
     Route::get('/pengawas_laporan_pengawasan_k3', 'PengawasController@pengawas_laporan_pengawasan_k3')->name('pengawas_laporan_pengawasan_k3');

@@ -103,7 +103,7 @@ Checklist APD
                     {{csrf_field()}}
                     <div class="form-group">
                         <label>List Pekerjaan</label>
-                        <select type="text" class="form-control" id="id_jadwal_pengawasan" name="id_jadwal_pengawasan" required="">
+                        <select type="text" class="form-control" id="id_pekerjaan" name="id_pekerjaan" required="">
                             <option selected disabled> -- Pilih Pekerjaan -- </option>
                             @foreach($list_pekerjaan as $data)
                             <option value="{{$data->id}}">{{$data->pekerjaan}}</option>

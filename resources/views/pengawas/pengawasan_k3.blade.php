@@ -205,7 +205,7 @@ Pengawasan K3
                             <div class="col">
                             <label>Working Permit</label>
                                 <div class="form-check">
-                                    <input required class="form-check-input" type="radio" name="jsa" id="jsa" value="Ada">
+                                    <input required class="form-check-input" type="radio" name="working_permit" id="working_permit" value="Ada">
                                     <label class="form-check-label" for="wp1">
                                         Ada
                                     </label>

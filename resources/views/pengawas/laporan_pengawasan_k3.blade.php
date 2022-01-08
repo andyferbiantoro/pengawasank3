@@ -12,8 +12,8 @@ Laporan Pengawasan K3
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Laporan Pengawasan K3</h1>
-        <a href="{{route('pengawas_laporan_pekerjaan_cetak')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download fa-sm text-white-50"></i> Download PDF</a>
-        <button class="btn btn-success" onclick="print('printPDF')">Cetak PDF</button>
+        <a href="{{route('pengawas_laporan_pengawasan_k3_cetak')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download fa-sm text-white-50"></i> Download PDF</a>
+       <!--  <button class="btn btn-success" onclick="print('printPDF')">Cetak PDF</button> -->
     </div>
 
 
@@ -68,7 +68,7 @@ Laporan Pengawasan K3
                                         <td style="text-align: center;">{{$data->hari_tgl }}</td>
                                         <td style="text-align: center;">{{$data->wkt_pekerjaan_awal }} - {{$data->wkt_pekerjaan_akhir }} </td>
                                         <td style="text-align: center;">{{$data->area }}</td>
-                                        <td style="text-align: center;"></td>
+                                        <td style="text-align: center;">{{$data->pengawas_k3 }}</td>
                                         <td style="text-align: center;">{{$data->pengawas_vendor }}</td>
                                         <td style="text-align: center;">{{$data->jml_petugas }}</td>
                                         <td style="text-align: center;">{{$data->sop }}</td>

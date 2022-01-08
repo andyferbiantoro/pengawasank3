@@ -30,7 +30,7 @@ Login
                 <div class="p-5">
                   <br><br>
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Pengawasan K3</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Pengawasan Keselamatan dan Kesehatan Kerja</h1>
                   </div>
                   @if (session('success'))
                   <div class="alert alert-success">
