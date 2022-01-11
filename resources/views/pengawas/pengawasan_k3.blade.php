@@ -98,6 +98,8 @@ Pengawasan K3
                                             <button class="fa fa-trash btn-danger btn-sm " title="Hapus"></button>
                                         </a>
 
+                                         <a href="{{route('pengawas_edit_pengawasan_k3',$data->id)}}"><button class="btn btn-info btn-sm fa fa-edit" title="Edit"></button></a>
+
                                     </td>
                                     <td style="display: none;">{{$data->id}}</td>
                                 </tr>

@@ -70,6 +70,7 @@ Checklist APD
                                         <a href="#" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">
                                             <button class="fa fa-trash btn-danger btn-sm " title="Hapus"></button>
                                         </a>
+                                        <a href="{{route('pengawas_edit_checklist_apd',$data->id)}}"><button class="btn btn-info btn-sm fa fa-edit" title="Edit"></button></a>
                                     </td>
                                     <td style="display: none;">{{$data->id}}</td>
                                 </tr>
@@ -125,7 +126,7 @@ Checklist APD
                     </div>
                     <div class="form-group">
                         <label>Personel Terkait</label>
-
+                         
                         <div class="row">
                             <div class="col">
                                 <label>Sebelum Pekerjaan</label>
@@ -173,6 +174,7 @@ Checklist APD
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
 
@@ -200,6 +202,7 @@ Checklist APD
                     {{ csrf_field() }}
                     {{ method_field('POST') }}
 
+
                     <div class="form-group">
                         <label>Nama Personel</label>
                         <input type="text" required class="form-control" id="nama_personel_update" name="nama_personel" placeholder="Area/Rayon">
@@ -210,18 +213,18 @@ Checklist APD
                     </div>
                     <div class="form-group">
                         <label>Personel Terkait</label>
-
+                        @foreach($data_apd as $data) @endforeach
                         <div class="row">
                             <div class="col">
                                 <label>Sebelum Pekerjaan</label>
                                 <div class="form-check">
-                                    <input required class="form-check-input" type="radio" name="hasil_sebelum" id="hasil_sebelum1" value="Ada" <?php if ($data->hasil_sebelum == 'Ada') echo 'checked' ?>>
+                                    <input required class="form-check-input" type="radio" name="hasil_sebelum" id="hasil_sebelum1_update" value="Ada" <?php if ($data->hasil_sebelum == 'Ada') echo 'checked' ?>>
                                     <label class="form-check-label" for="hasil_sebelum1">
                                         Ada
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input required class="form-check-input" type="radio" name="hasil_sebelum" id="hasil_sebelum2" value="Tidak Ada" <?php if ($data->hasil_sebelum == 'Tidak Ada') echo 'checked' ?>>
+                                    <input required class="form-check-input" type="radio" name="hasil_sebelum" id="hasil_sebelum2_update" value="Tidak Ada" <?php if ($data->hasil_sebelum == 'Tidak Ada') echo 'checked' ?>>
                                     <label class="form-check-label" for="hasil_sebelum2">
                                         Tidak Ada
                                     </label>
@@ -230,13 +233,13 @@ Checklist APD
                             <div class="col">
                                 <label>Saat Pekerjaan</label>
                                 <div class="form-check">
-                                    <input required class="form-check-input" type="radio" name="hasil_saat" id="hasil_saat1" value="Ada" <?php if ($data->hasil_saat == 'Ada') echo 'checked' ?>>
+                                    <input required class="form-check-input" type="radio" name="hasil_saat" id="hasil_saat1_update" value="Ada" <?php if ($data->hasil_saat == 'Ada') echo 'checked' ?>>
                                     <label class="form-check-label" for="hasil_saat1">
                                         Ada
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input required class="form-check-input" type="radio" name="hasil_saat" id="hasil_saat2" value="Tidak Ada" <?php if ($data->hasil_saat == 'Tidak Ada') echo 'checked' ?>>
+                                    <input required class="form-check-input" type="radio" name="hasil_saat" id="hasil_saat2_update" value="Tidak Ada" <?php if ($data->hasil_saat == 'Tidak Ada') echo 'checked' ?>>
                                     <label class="form-check-label" for="hasil_saat2">
                                         Tidak Ada
                                     </label>
@@ -245,19 +248,20 @@ Checklist APD
                             <div class="col">
                                 <label>Setelah Pekerjaan</label>
                                 <div class="form-check">
-                                    <input required class="form-check-input" type="radio" name="hasil_setelah" id="hasil_setelah1" value="Ada" <?php if ($data->hasil_setelah == 'Ada') echo 'checked' ?>>
+                                    <input required class="form-check-input" type="radio" name="hasil_setelah" id="hasil_setelah1_update" value="Ada" <?php if ($data->hasil_setelah == 'Ada') echo 'checked' ?>>
                                     <label class="form-check-label" for="hasil_setelah1">
                                         Ada
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input required class="form-check-input" type="radio" name="hasil_setelah" id="hasil_setelah2" value="Tidak Ada" <?php if ($data->hasil_setelah == 'Tidak Ada') echo 'checked' ?>>
+                                    <input required class="form-check-input" type="radio" name="hasil_setelah" id="hasil_setelah2_update" value="Tidak Ada" <?php if ($data->hasil_setelah == 'Tidak Ada') echo 'checked' ?>>
                                     <label class="form-check-label" for="hasil_setelah2">
                                         Tidak Ada
                                     </label>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary float-right mr-2">Perbarui</button>
@@ -321,6 +325,9 @@ Checklist APD
       var data = table.row($tr).data();
       console.log(data);
       $('#nama_personel_update').val(data[1]);
+      $('#nama_apd_update').val(data[2]);
+      $('#nama_apd_update').val(data[2]);
+      $('#nama_apd_update').val(data[2]);
       $('#nama_apd_update').val(data[2]);
      
       $('#updateModalform').attr('action','pengawas_checklist_apd_update/'+ data[7]);

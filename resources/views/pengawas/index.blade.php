@@ -63,19 +63,19 @@ Dashboard Pengawas
                                         <td style="text-align: center;">{{date("j F Y", strtotime($data->tgl_surat_tugas))}}</td>
                                         @if($data->level == 1)
                                         <td style="text-align: center;">
-                                             <button class="btn btn-sm btn-danger">Prioritas 1</button>
+                                           <a href="{{route('pengawas_pekerjaan')}}">  <button class="btn btn-sm btn-danger">Prioritas 1</button></a>
                                         </td>
                                         @endif
 
                                         @if($data->level == 2)
                                         <td style="text-align: center;">
-                                             <button class="btn btn-sm btn-warning">Prioritas 2</button>
+                                             <a href="{{route('pengawas_pekerjaan')}}"><button class="btn btn-sm btn-warning">Prioritas 2</button></a>
                                         </td>
                                         @endif
 
                                         @if($data->level == 3)
                                         <td style="text-align: center;">
-                                             <button class="btn btn-sm btn-success">Prioritas 3</button>
+                                            <a href="{{route('pengawas_pekerjaan')}}"><button class="btn btn-sm btn-success">Prioritas 3</button></a>
                                         </td>
                                         @endif
                                     </tr>

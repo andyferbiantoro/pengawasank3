@@ -56,18 +56,22 @@ Route::group(['middleware' => ['auth', 'pengawas']],function(){
     Route::post('/pengawas_pengawasan_k3_add', 'PengawasController@pengawas_pengawasan_k3_add')->name('pengawas_pengawasan_k3_add');
     Route::post('/pengawas_pengawasan_k3_update/{id}', 'PengawasController@pengawas_pengawasan_k3_update')->name('pengawas_pengawasan_k3_update');
     Route::post('/pengawas_pengawasan_k3_delete/{id}', 'PengawasController@pengawas_pengawasan_k3_delete')->name('pengawas_pengawasan_k3_delete');
+    Route::get('/pengawas_edit_pengawasan_k3/{id}', 'PengawasController@pengawas_edit_pengawasan_k3')->name('pengawas_edit_pengawasan_k3');
 
 
     Route::get('/pengawas_checklist_apd', 'PengawasController@pengawas_checklist_apd')->name('pengawas_checklist_apd'); 
     Route::post('/pengawas_checklist_apd_add', 'PengawasController@pengawas_checklist_apd_add')->name('pengawas_checklist_apd_add');
     Route::post('/pengawas_checklist_apd_update/{id}', 'PengawasController@pengawas_checklist_apd_update')->name('pengawas_checklist_apd_update');
     Route::post('/pengawas_checklist_apd_delete/{id}', 'PengawasController@pengawas_checklist_apd_delete')->name('pengawas_checklist_apd_delete');
+    Route::get('/pengawas_edit_checklist_apd/{id}', 'PengawasController@pengawas_edit_checklist_apd')->name('pengawas_edit_checklist_apd');
 
 
     Route::get('/pengawas_checklist_peralatan', 'PengawasController@pengawas_checklist_peralatan')->name('pengawas_checklist_peralatan');
     Route::post('/pengawas_checklist_peralatan_add', 'PengawasController@pengawas_checklist_peralatan_add')->name('pengawas_checklist_peralatan_add');
     Route::post('/pengawas_checklist_peralatan_update/{id}', 'PengawasController@pengawas_checklist_peralatan_update')->name('pengawas_checklist_peralatan_update');
     Route::post('/pengawas_checklist_peralatan_delete/{id}', 'PengawasController@pengawas_checklist_peralatan_delete')->name('pengawas_checklist_peralatan_delete');
+    Route::get('/pengawas_edit_checklist_peralatan/{id}', 'PengawasController@pengawas_edit_checklist_peralatan')->name('pengawas_edit_checklist_peralatan');
+
 
 
     Route::get('/pengawas_laporan_pekerjaan', 'PengawasController@pengawas_laporan_pekerjaan')->name('pengawas_laporan_pekerjaan');

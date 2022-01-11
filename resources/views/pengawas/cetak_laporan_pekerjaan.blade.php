@@ -29,11 +29,9 @@ td {
         <th style="text-align: center; vertical-align: middle;">Nomor Surat Tugas</th>
         <th style="text-align: center; vertical-align: middle;">Nomor PK</th>
         <th style="text-align: center; vertical-align: middle;">Pekerjaan</th>
-        <th style="text-align: center; vertical-align: middle;">Volume</th>
         <th style="text-align: center; vertical-align: middle;">Lokasi</th>
         <th style="text-align: center; vertical-align: middle;">Titik Tumpu</th>
         <th style="text-align: center; vertical-align: middle;">Penyulang</th>
-        <th style="text-align: center; vertical-align: middle;">Unit</th>
         <th style="text-align: center; vertical-align: middle;">Koordinat</th>
         <th style="text-align: center; vertical-align: middle;">Pelaksana</th>
 
@@ -48,11 +46,9 @@ td {
         <td style="text-align: center;">{{$data->no_surat_tugas }}</td>
         <td style="text-align: center;">{{$data->no_pk }}</td>
         <td style="text-align: center;">{{$data->pekerjaan }}</td>
-        <td style="text-align: center;">-- VOLUME --</td>
         <td style="text-align: center;">{{$data->lokasi }}</td>
         <td style="text-align: center;">{{$data->titik_tumpu }}</td>
         <td style="text-align: center;">{{$data->penyulang }}</td>
-        <td style="text-align: center;">-- UNIT --</td>
         <td style="text-align: center;">{{$data->koordinat }}</td>
         <td style="text-align: center;">{{$data->pelaksana }}</td>
         
