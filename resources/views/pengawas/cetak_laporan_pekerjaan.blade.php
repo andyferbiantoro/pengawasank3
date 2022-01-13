@@ -21,6 +21,13 @@ td {
 
 </style>
 
+    <div >
+   <img src="../public/Img/Logo_PLN.PNG" width="100px" height="150px" >
+        
+    </div>
+    
+</div>
+<br>
 <table style="width:100%" class="table table-striped table-bordered table-hover">
    <thead class="thead-light">
     <tr>
@@ -123,3 +130,5 @@ td {
     @endforeach
 </tbody>
 </table>
+
+

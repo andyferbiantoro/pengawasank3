@@ -343,8 +343,10 @@ public function pengawas_checklist_peralatan_add(Request $request)
     if($request->hasFile('dok_pemasangan')){
         $file = $request->file('dok_pemasangan');
         $filename = $file->getClientOriginalName();
+        $path = $file->store('public/uploads/dok_pemasangan');
         $file->move('uploads/dok_pemasangan/', $filename);
         $add_data->dok_pemasangan = $filename;
+        $add_data->path = $path;
 
     }else{
         echo "Gagal upload gambar";
@@ -392,6 +394,7 @@ $nama_file = $file->getClientOriginalName();
 $path = $file->store('public/uploads/dok_pemasangan');
 $file->move(public_path() . '/uploads/dok_pemasangan/', $nama_file);
 $input['dok_pemasangan'] = $nama_file;
+
 }
 
 
@@ -408,7 +411,13 @@ public function pengawas_checklist_peralatan_delete($id)
   return redirect('/pengawas_checklist_peralatan')->with('success', 'Data checklist peralatan Berhasil Dihapus');
 }
 
+public function lihat_pdf_checklist_peralatan($id)
+{
+     $download = ChecklistPeralatan::find($id);
 
+          return  PDF::download($download->path, $download->file_surat_keputusan);
+
+}
 
 //=============================================================================================================
 public function pengawas_laporan_pekerjaan()

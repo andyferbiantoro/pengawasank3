@@ -38,7 +38,7 @@ Edit Pengawasan K3
                 <!-- Card Body -->
                 <div class="card-body">
                  @foreach($data_pengawasan_k3 as $data)
-                 <form action="" id="updateModalform" method="post" enctype="multipart/form-data">
+                 <form action="{{route('pengawas_pengawasan_k3_update',$data->id)}}"  method="post" enctype="multipart/form-data">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Anda yakin ingin memperbarui Data ini ?</h5>

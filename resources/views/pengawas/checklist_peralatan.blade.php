@@ -69,8 +69,9 @@ Checklist Peralatan
                                     <td style="text-align: center;">{{$data->hasil_setelah }}</td>
                                     <td style="text-align: center;">{{$data->keterangan }}</td>
                                     <td style="text-align: center;">{{$data->dok_pemasangan }}</td>
+                                    <!-- <td style="text-align: center;"><embed type="application/pdf" src="uploads/dok_pemasangan/surat lamaran ARY.pdf" width="600" height="400"></embed></td> -->
                                     <td style="text-align: center;">
-                                        <button class="btn btn-warning btn-sm fa fa-edit edit" data-toggle="modal" data-target="#updateModal" title="Edit"></button>
+                                        <!-- <button class="btn btn-warning btn-sm fa fa-edit edit" data-toggle="modal" data-target="#updateModal" title="Edit"></button> -->
                                         <a href="#" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">
                                             <button class="fa fa-trash btn-danger btn-sm " title="Hapus"></button>
                                         </a>

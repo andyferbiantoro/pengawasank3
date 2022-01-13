@@ -93,7 +93,7 @@ Pengawasan K3
                                     <td style="text-align: center;">{{$data->unsafe_action }}</td>
                                     <td style="text-align: center;">{{$data->unsafe_kondisi }}</td>
                                     <td style="text-align: center;">
-                                        <button class="btn btn-warning btn-sm fa fa-edit edit" title="Edit"></button>
+                                        <!-- <button class="btn btn-warning btn-sm fa fa-edit edit" title="Edit"></button> -->
                                         <a href="#" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">
                                             <button class="fa fa-trash btn-danger btn-sm " title="Hapus"></button>
                                         </a>
@@ -133,7 +133,7 @@ Pengawasan K3
                     {{csrf_field()}}
                     <div class="form-group">
                         <label>List Pekerjaan</label>
-                        <select type="text" class="form-control" id="id_jadwal_pengawasan" name="id_jadwal_pengawasan" required="">
+                        <select type="text" class="form-control" id="id_pekerjaan" name="id_pekerjaan" required="">
                             <option selected disabled> -- Pilih Pekerjaan -- </option>
                             @foreach($list_pekerjaan as $data)
                             <option value="{{$data->id}}">{{$data->pekerjaan}}</option>

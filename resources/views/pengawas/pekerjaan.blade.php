@@ -63,7 +63,7 @@ Pekerjaan
                                     <td style="text-align: center;">{{date("j F Y", strtotime($data->hari_tgl))}}</td>
                                     <td style="text-align: center;">{{date("H:i", strtotime($data->wkt_pekerjaan_awal))}} - {{date("H:i", strtotime($data->wkt_pekerjaan_akhir))}} WIB</td>
                                     <td style="text-align: center;">
-                                        <button class="btn btn-warning btn-sm fa fa-edit edit" data-toggle="modal" data-target="#updateModal" title="Edit"></button>
+                                      <!--   <button class="btn btn-warning btn-sm fa fa-edit edit" data-toggle="modal" data-target="#updateModal" title="Edit"></button> -->
                                         <a href="#" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">
                                             <button class="fa fa-trash btn-danger btn-sm " title="Hapus"></button>
                                         </a>

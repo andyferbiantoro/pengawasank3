@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth', 'pengawas']],function(){
     Route::post('/pengawas_checklist_peralatan_update/{id}', 'PengawasController@pengawas_checklist_peralatan_update')->name('pengawas_checklist_peralatan_update');
     Route::post('/pengawas_checklist_peralatan_delete/{id}', 'PengawasController@pengawas_checklist_peralatan_delete')->name('pengawas_checklist_peralatan_delete');
     Route::get('/pengawas_edit_checklist_peralatan/{id}', 'PengawasController@pengawas_edit_checklist_peralatan')->name('pengawas_edit_checklist_peralatan');
+    Route::get('/lihat_pdf_checklist_peralatan/{id}', 'PengawasController@lihat_pdf_checklist_peralatan')->name('lihat_pdf_checklist_peralatan');
 
 
 
