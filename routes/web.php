@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth', 'pengawas']],function(){
     Route::post('/pengawas_pengawasan_k3_update/{id}', 'PengawasController@pengawas_pengawasan_k3_update')->name('pengawas_pengawasan_k3_update');
     Route::post('/pengawas_pengawasan_k3_delete/{id}', 'PengawasController@pengawas_pengawasan_k3_delete')->name('pengawas_pengawasan_k3_delete');
     Route::get('/pengawas_edit_pengawasan_k3/{id}', 'PengawasController@pengawas_edit_pengawasan_k3')->name('pengawas_edit_pengawasan_k3');
+    Route::get('/download_dok_brief/{id}', 'PengawasController@download_dok_brief')->name('download_dok_brief');
+    Route::get('/download_dok_pel_pekerjaan/{id}', 'PengawasController@download_dok_pel_pekerjaan')->name('download_dok_pel_pekerjaan');
 
 
     Route::get('/pengawas_checklist_apd', 'PengawasController@pengawas_checklist_apd')->name('pengawas_checklist_apd'); 
@@ -71,7 +73,8 @@ Route::group(['middleware' => ['auth', 'pengawas']],function(){
     Route::post('/pengawas_checklist_peralatan_update/{id}', 'PengawasController@pengawas_checklist_peralatan_update')->name('pengawas_checklist_peralatan_update');
     Route::post('/pengawas_checklist_peralatan_delete/{id}', 'PengawasController@pengawas_checklist_peralatan_delete')->name('pengawas_checklist_peralatan_delete');
     Route::get('/pengawas_edit_checklist_peralatan/{id}', 'PengawasController@pengawas_edit_checklist_peralatan')->name('pengawas_edit_checklist_peralatan');
-    Route::get('/lihat_pdf_checklist_peralatan/{id}', 'PengawasController@lihat_pdf_checklist_peralatan')->name('lihat_pdf_checklist_peralatan');
+    Route::get('/pengawas_checklist_peralatan_download_dok_pemasangan/{id}', 'PengawasController@pengawas_checklist_peralatan_download_dok_pemasangan')->name('pengawas_checklist_peralatan_download_dok_pemasangan');
+
 
 
 

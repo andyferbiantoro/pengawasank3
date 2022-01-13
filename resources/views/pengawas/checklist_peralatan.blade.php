@@ -68,8 +68,7 @@ Checklist Peralatan
                                     <td style="text-align: center;">{{$data->hasil_sebelum }}</td>
                                     <td style="text-align: center;">{{$data->hasil_setelah }}</td>
                                     <td style="text-align: center;">{{$data->keterangan }}</td>
-                                    <td style="text-align: center;">{{$data->dok_pemasangan }}</td>
-                                    <!-- <td style="text-align: center;"><embed type="application/pdf" src="uploads/dok_pemasangan/surat lamaran ARY.pdf" width="600" height="400"></embed></td> -->
+                                    <td style="text-align: center;"><a href="{{route('pengawas_checklist_peralatan_download_dok_pemasangan',$data->id)}}"><button class="btn btn-success btn-sm ">Download</button></a></td>
                                     <td style="text-align: center;">
                                         <!-- <button class="btn btn-warning btn-sm fa fa-edit edit" data-toggle="modal" data-target="#updateModal" title="Edit"></button> -->
                                         <a href="#" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">

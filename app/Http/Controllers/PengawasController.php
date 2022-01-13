@@ -140,8 +140,11 @@ public function pengawas_pengawasan_k3_add(Request $request)
     if($request->hasFile('dok_brief')){
         $file = $request->file('dok_brief');
         $filename = $file->getClientOriginalName();
+        $path_brief = $file->store('public/uploads/dok_brief');
         $file->move('uploads/dok_brief/', $filename);
         $add_data->dok_brief = $filename;
+        $add_data->path_brief = $path_brief;
+
 
     }else{
         echo "Gagal upload gambar";
@@ -150,8 +153,10 @@ public function pengawas_pengawasan_k3_add(Request $request)
     if($request->hasFile('dok_pelaksanaan')){
         $file = $request->file('dok_pelaksanaan');
         $filename = $file->getClientOriginalName();
+        $path_pel = $file->store('public/uploads/dok_pelaksanaan');
         $file->move('uploads/dok_pelaksanaan/', $filename);
         $add_data->dok_pelaksanaan = $filename;
+        $add_data->path_pelaksana = $path_pel;
 
     }else{
         echo "Gagal upload gambar";
@@ -234,6 +239,22 @@ public function pengawas_pengawasan_k3_delete($id)
   return redirect('/pengawas_pengawasan_k3')->with('success', 'Data Pengawas Pengawasan K3 Berhasil Dihapus');
 
 }
+
+public function download_dok_brief($id)
+     {
+
+          $download = PengawasanK3::find($id);
+
+          return  Storage::download($download->path_brief, $download->dok_brief);
+     }
+
+public function download_dok_pel_pekerjaan($id)
+     {
+
+          $download = PengawasanK3::find($id);
+
+          return  Storage::download($download->path_pelaksana, $download->dok_pelaksanaan);
+     }     
 //=============================================================================================================
 
 public function pengawas_checklist_apd()
@@ -411,13 +432,13 @@ public function pengawas_checklist_peralatan_delete($id)
   return redirect('/pengawas_checklist_peralatan')->with('success', 'Data checklist peralatan Berhasil Dihapus');
 }
 
-public function lihat_pdf_checklist_peralatan($id)
-{
-     $download = ChecklistPeralatan::find($id);
+public function pengawas_checklist_peralatan_download_dok_pemasangan($id)
+     {
 
-          return  PDF::download($download->path, $download->file_surat_keputusan);
+          $download = ChecklistPeralatan::find($id);
 
-}
+          return  Storage::download($download->path, $download->dok_pemasangan);
+     }
 
 //=============================================================================================================
 public function pengawas_laporan_pekerjaan()
